@@ -1,0 +1,847 @@
+<!DOCTYPE html>
+<html lang="fr" class="no-js">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galerie - Elvoria RP | Captures d'écran et vidéos</title>
+    <meta name="description" content="Explorez l'univers d'Elvoria RP à travers notre galerie. Découvrez les véhicules, propriétés, métiers et paysages de notre serveur.">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Rajdhani:wght@500;600;700;800&family=Orbitron:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>👑</text></svg>">
+    <style>
+        /* Styles spécifiques à la galerie */
+        .gallery-categories {
+            margin-bottom: 40px;
+        }
+        
+        .category-filters {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+            margin-bottom: 30px;
+        }
+        
+        .filter-btn {
+            padding: 10px 20px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 50px;
+            color: var(--gray);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .filter-btn.active,
+        .filter-btn:hover {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+        
+        .gallery-full {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+        
+        .gallery-item-full {
+            position: relative;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            aspect-ratio: 16/9;
+            cursor: pointer;
+        }
+        
+        .gallery-item-full img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .gallery-item-full:hover img {
+            transform: scale(1.1);
+        }
+        
+        .gallery-info {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 20px;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.9));
+            transform: translateY(100%);
+            transition: var(--transition);
+        }
+        
+        .gallery-item-full:hover .gallery-info {
+            transform: translateY(0);
+        }
+        
+        .gallery-category {
+            display: inline-block;
+            padding: 5px 12px;
+            background: var(--accent);
+            color: white;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            margin-bottom: 10px;
+        }
+        
+        .lightbox {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            padding: 40px;
+        }
+        
+        .lightbox.active {
+            display: flex;
+        }
+        
+        .lightbox-content {
+            max-width: 90%;
+            max-height: 90%;
+            position: relative;
+        }
+        
+        .lightbox-img {
+            max-width: 100%;
+            max-height: 80vh;
+            border-radius: 10px;
+        }
+        
+        .lightbox-close {
+            position: absolute;
+            top: -40px;
+            right: 0;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 2rem;
+            cursor: pointer;
+        }
+        
+        .lightbox-nav {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+            padding: 0 20px;
+        }
+        
+        .lightbox-btn {
+            background: rgba(255, 255, 255, 0.1);
+            border: none;
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .lightbox-btn:hover {
+            background: var(--primary);
+        }
+        
+        .video-section {
+            margin-top: 80px;
+        }
+        
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 30px;
+        }
+        
+        .video-card {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            border: var(--border);
+        }
+        
+        .video-thumbnail {
+            position: relative;
+            aspect-ratio: 16/9;
+            overflow: hidden;
+        }
+        
+        .video-thumbnail img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .play-btn {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 70px;
+            height: 70px;
+            background: rgba(229, 62, 62, 0.8);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .play-btn:hover {
+            background: var(--secondary);
+            transform: translate(-50%, -50%) scale(1.1);
+        }
+        
+        .video-info {
+            padding: 20px;
+        }
+        
+        .video-title {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: white;
+        }
+        
+        .video-meta {
+            display: flex;
+            justify-content: space-between;
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 768px) {
+            .video-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .lightbox {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <header class="header" id="header">
+        <div class="container">
+            <nav class="nav">
+                <div class="nav-logo">
+                    <a href="../index.html" class="logo">
+                        <div class="logo-icon">
+                            <i class="fas fa-crown"></i>
+                        </div>
+                        <div class="logo-text">
+                            ELVORIA<span>RP</span>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="nav-menu" id="navMenu">
+                    <ul class="nav-list">
+                        <li class="nav-item">
+                            <a href="../index.html" class="nav-link">
+                                <i class="fas fa-home"></i>
+                                <span>Accueil</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="serveur.html" class="nav-link">
+                                <i class="fas fa-server"></i>
+                                <span>Le Serveur</span>
+                            </a>
+                        </li>
+                        <li class="nav-item active">
+                            <a href="galerie.html" class="nav-link">
+                                <i class="fas fa-images"></i>
+                                <span>Galerie</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="staff.html" class="nav-link">
+                                <i class="fas fa-users-cog"></i>
+                                <span>Staff</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="regles.html" class="nav-link">
+                                <i class="fas fa-book"></i>
+                                <span>Règles</span>
+                            </a>
+                        </li>
+                        <li class="nav-item nav-discord">
+                            <a href="../index.html#discord" class="nav-link discord-btn">
+                                <i class="fab fa-discord"></i>
+                                <span>Discord</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="nav-actions">
+                    <a href="../index.html#join" class="btn btn-primary btn-join">
+                        <i class="fas fa-play"></i>
+                        <span>Jouer Maintenant</span>
+                    </a>
+                    <div class="nav-toggle" id="navToggle">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Galerie -->
+    <section class="page-hero">
+        <div class="container">
+            <div class="page-hero-content">
+                <h1 class="page-title">
+                    <span class="title-decor">Galerie</span> Visuelle
+                </h1>
+                <p class="page-subtitle">
+                    Explorez l'univers d'Elvoria RP en images et vidéos
+                </p>
+                <div class="page-breadcrumb">
+                    <a href="../index.html">Accueil</a>
+                    <i class="fas fa-chevron-right"></i>
+                    <span>Galerie</span>
+                </div>
+            </div>
+        </div>
+        <div class="page-hero-bg"></div>
+    </section>
+
+    <!-- Catégories -->
+    <section class="gallery-categories">
+        <div class="container">
+            <div class="category-filters">
+                <button class="filter-btn active" data-filter="all">Tout voir</button>
+                <button class="filter-btn" data-filter="vehicules">Véhicules</button>
+                <button class="filter-btn" data-filter="proprietes">Propriétés</button>
+                <button class="filter-btn" data-filter="metiers">Métiers</button>
+                <button class="filter-btn" data-filter="paysages">Paysages</button>
+                <button class="filter-btn" data-filter="events">Événements</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Galerie Principale -->
+    <section class="gallery-main">
+        <div class="container">
+            <div class="gallery-full" id="galleryContainer">
+                <!-- Images générées dynamiquement par JavaScript -->
+            </div>
+            
+            <div class="load-more">
+                <button class="btn btn-secondary" id="loadMoreBtn">
+                    <i class="fas fa-plus"></i>
+                    <span>Charger plus d'images</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Vidéos -->
+    <section class="video-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">
+                    <span class="title-decor">Vidéos</span>
+                    Officielles
+                </h2>
+                <p class="section-subtitle">Découvrez Elvoria RP en mouvement</p>
+            </div>
+            
+            <div class="video-grid">
+                <div class="video-card">
+                    <div class="video-thumbnail">
+                        <img src="https://images.unsplash.com/photo-1593305841991-05c297ba4575?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Trailer officiel">
+                        <div class="play-btn" data-video="https://www.youtube.com/embed/dQw4w9WgXcQ">
+                            <i class="fas fa-play"></i>
+                        </div>
+                    </div>
+                    <div class="video-info">
+                        <h3 class="video-title">Trailer Officiel Elvoria RP</h3>
+                        <div class="video-meta">
+                            <span>2:45</span>
+                            <span>15K vues</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="video-card">
+                    <div class="video-thumbnail">
+                        <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Guide débutant">
+                        <div class="play-btn" data-video="https://www.youtube.com/embed/dQw4w9WgXcQ">
+                            <i class="fas fa-play"></i>
+                        </div>
+                    </div>
+                    <div class="video-info">
+                        <h3 class="video-title">Guide du Débutant Complet</h3>
+                        <div class="video-meta">
+                            <span>12:30</span>
+                            <span>8.5K vues</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="video-card">
+                    <div class="video-thumbnail">
+                        <img src="https://images.unsplash.com/photo-1511512578047-dfb367046420?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Événement spécial">
+                        <div class="play-btn" data-video="https://www.youtube.com/embed/dQw4w9WgXcQ">
+                            <i class="fas fa-play"></i>
+                        </div>
+                    </div>
+                    <div class="video-info">
+                        <h3 class="video-title">Événement Spécial : Course de Rue</h3>
+                        <div class="video-meta">
+                            <span>8:15</span>
+                            <span>12.3K vues</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox">
+        <div class="lightbox-content">
+            <button class="lightbox-close" id="lightboxClose">
+                <i class="fas fa-times"></i>
+            </button>
+            <img class="lightbox-img" id="lightboxImage" src="" alt="">
+            <div class="lightbox-nav">
+                <button class="lightbox-btn" id="lightboxPrev">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button class="lightbox-btn" id="lightboxNext">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-logo">
+                        <div class="logo">
+                            <div class="logo-icon">
+                                <i class="fas fa-crown"></i>
+                            </div>
+                            <div class="logo-text">
+                                ELVORIA<span>RP</span>
+                            </div>
+                        </div>
+                        <p class="footer-description">
+                            Serveur FiveM RP français premium. 
+                            Expérience immersive et communauté active.
+                        </p>
+                    </div>
+
+                    <div class="social-links">
+                        <a href="../index.html#discord" class="social-link">
+                            <i class="fab fa-discord"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-tiktok"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h3 class="footer-title">Navigation</h3>
+                    <ul class="footer-links">
+                        <li><a href="../index.html"><i class="fas fa-chevron-right"></i> Accueil</a></li>
+                        <li><a href="serveur.html"><i class="fas fa-chevron-right"></i> Le Serveur</a></li>
+                        <li><a href="galerie.html"><i class="fas fa-chevron-right"></i> Galerie</a></li>
+                        <li><a href="staff.html"><i class="fas fa-chevron-right"></i> Staff</a></li>
+                        <li><a href="regles.html"><i class="fas fa-chevron-right"></i> Règles</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h3 class="footer-title">Ressources</h3>
+                    <ul class="footer-links">
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Guide Débutant</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Wiki RP</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Support</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> FAQ</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Blog</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h3 class="footer-title">Contact</h3>
+                    <ul class="footer-contact">
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <span>contact@elvoria-rp.com</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-globe"></i>
+                            <span>www.elvoria-rp.com</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-server"></i>
+                            <span>connect.elvoria-rp.com</span>
+                        </li>
+                    </ul>
+
+                    <div class="newsletter">
+                        <h4>Newsletter</h4>
+                        <p>Restez informé des mises à jour</p>
+                        <form class="newsletter-form">
+                            <input type="email" placeholder="Votre email" required>
+                            <button type="submit">
+                                <i class="fas fa-paper-plane"></i>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div class="copyright">
+                    &copy; 2024 Elvoria RP. Tous droits réservés.
+                    <span class="separator">|</span>
+                    FiveM est une marque déposée de Rockstar North.
+                </div>
+                <div class="legal-links">
+                    <a href="#">Mentions légales</a>
+                    <a href="#">CGU</a>
+                    <a href="#">Politique de confidentialité</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top -->
+    <button class="back-to-top" id="backToTop">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <script src="../script.js"></script>
+    <script>
+        // Données de la galerie
+        const galleryData = [
+            {
+                id: 1,
+                category: "vehicules",
+                title: "Supercar de luxe",
+                description: "Bugatti Chiron personnalisée",
+                image: "https://images.unsplash.com/photo-1503376780353-7e6692767b70?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+            },
+            {
+                id: 2,
+                category: "proprietes",
+                title: "Villa moderne",
+                description: "Propriété haut de gamme avec piscine",
+                image: "https://images.unsplash.com/photo-1613490493576-7fde63acd811?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+            },
+            {
+                id: 3,
+                category: "metiers",
+                title: "Police Nationale",
+                description: "Unité d'intervention rapide",
+                image: "https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+            },
+            {
+                id: 4,
+                category: "paysages",
+                title: "Coucher de soleil",
+                description: "Vue panoramique sur la ville",
+                image: "https://images.unsplash.com/photo-1518837695005-2083093ee35b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+            },
+            {
+                id: 5,
+                category: "events",
+                title: "Course illégale",
+                description: "Meeting de voitures de nuit",
+                image: "https://images.unsplash.com/photo-1504215680853-026ed2a45def?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+            },
+            {
+                id: 6,
+                category: "vehicules",
+                title: "Moto sportive",
+                description: "Ducati Panigale V4",
+                image: "https://images.unsplash.com/photo-1558981806-ec527fa84c39?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+            },
+            {
+                id: 7,
+                category: "proprietes",
+                title: "Appartement luxe",
+                description: "Penthouse avec terrasse",
+                image: "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+            },
+            {
+                id: 8,
+                category: "metiers",
+                title: "Service médical",
+                description: "Ambulance en intervention",
+                image: "https://images.unsplash.com/photo-1582750433449-648ed127bb54?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+            },
+            {
+                id: 9,
+                category: "paysages",
+                title: "Vue aérienne",
+                description: "La ville depuis les airs",
+                image: "https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+            },
+            {
+                id: 10,
+                category: "events",
+                title: "Concert en plein air",
+                description: "Événement communautaire",
+                image: "https://images.unsplash.com/photo-1540039155733-5bb30b53aa14?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+            }
+        ];
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const galleryContainer = document.getElementById('galleryContainer');
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            const loadMoreBtn = document.getElementById('loadMoreBtn');
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImage = document.getElementById('lightboxImage');
+            const lightboxClose = document.getElementById('lightboxClose');
+            const lightboxPrev = document.getElementById('lightboxPrev');
+            const lightboxNext = document.getElementById('lightboxNext');
+            const playBtns = document.querySelectorAll('.play-btn');
+            
+            let currentFilter = 'all';
+            let currentIndex = 0;
+            let filteredImages = [...galleryData];
+            let displayedCount = 6;
+            
+            // Initialiser la galerie
+            function initGallery() {
+                renderGallery();
+                setupLightbox();
+                setupVideoPlayers();
+            }
+            
+            // Rendu de la galerie
+            function renderGallery() {
+                galleryContainer.innerHTML = '';
+                
+                const imagesToShow = filteredImages.slice(0, displayedCount);
+                
+                imagesToShow.forEach((item, index) => {
+                    const galleryItem = document.createElement('div');
+                    galleryItem.className = `gallery-item-full ${item.category}`;
+                    galleryItem.setAttribute('data-index', index);
+                    
+                    galleryItem.innerHTML = `
+                        <img src="${item.image}" alt="${item.title}" loading="lazy">
+                        <div class="gallery-info">
+                            <span class="gallery-category">${getCategoryName(item.category)}</span>
+                            <h3>${item.title}</h3>
+                            <p>${item.description}</p>
+                        </div>
+                    `;
+                    
+                    galleryItem.addEventListener('click', () => openLightbox(index));
+                    galleryContainer.appendChild(galleryItem);
+                });
+                
+                // Masquer le bouton "Charger plus" si tout est affiché
+                if (displayedCount >= filteredImages.length) {
+                    loadMoreBtn.style.display = 'none';
+                } else {
+                    loadMoreBtn.style.display = 'flex';
+                }
+            }
+            
+            // Obtenir le nom de la catégorie
+            function getCategoryName(category) {
+                const categories = {
+                    'vehicules': 'Véhicules',
+                    'proprietes': 'Propriétés',
+                    'metiers': 'Métiers',
+                    'paysages': 'Paysages',
+                    'events': 'Événements'
+                };
+                return categories[category] || category;
+            }
+            
+            // Filtrage
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const filter = btn.getAttribute('data-filter');
+                    
+                    // Mettre à jour les boutons actifs
+                    filterBtns.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    
+                    // Appliquer le filtre
+                    currentFilter = filter;
+                    displayedCount = 6;
+                    
+                    if (filter === 'all') {
+                        filteredImages = [...galleryData];
+                    } else {
+                        filteredImages = galleryData.filter(item => item.category === filter);
+                    }
+                    
+                    renderGallery();
+                });
+            });
+            
+            // Charger plus d'images
+            loadMoreBtn.addEventListener('click', () => {
+                displayedCount += 6;
+                renderGallery();
+            });
+            
+            // Lightbox
+            function setupLightbox() {
+                // Ouvrir la lightbox
+                window.openLightbox = function(index) {
+                    currentIndex = index;
+                    updateLightbox();
+                    lightbox.classList.add('active');
+                    document.body.style.overflow = 'hidden';
+                };
+                
+                // Fermer la lightbox
+                lightboxClose.addEventListener('click', closeLightbox);
+                lightbox.addEventListener('click', (e) => {
+                    if (e.target === lightbox) {
+                        closeLightbox();
+                    }
+                });
+                
+                // Navigation
+                lightboxPrev.addEventListener('click', () => {
+                    currentIndex = (currentIndex - 1 + filteredImages.length) % filteredImages.length;
+                    updateLightbox();
+                });
+                
+                lightboxNext.addEventListener('click', () => {
+                    currentIndex = (currentIndex + 1) % filteredImages.length;
+                    updateLightbox();
+                });
+                
+                // Navigation au clavier
+                document.addEventListener('keydown', (e) => {
+                    if (!lightbox.classList.contains('active')) return;
+                    
+                    if (e.key === 'Escape') closeLightbox();
+                    if (e.key === 'ArrowLeft') lightboxPrev.click();
+                    if (e.key === 'ArrowRight') lightboxNext.click();
+                });
+            }
+            
+            function updateLightbox() {
+                const item = filteredImages[currentIndex];
+                lightboxImage.src = item.image;
+                lightboxImage.alt = item.title;
+            }
+            
+            function closeLightbox() {
+                lightbox.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+            
+            // Vidéos
+            function setupVideoPlayers() {
+                playBtns.forEach(btn => {
+                    btn.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        const videoUrl = btn.getAttribute('data-video');
+                        
+                        // Ouvrir la vidéo dans un modal
+                        const modal = document.createElement('div');
+                        modal.className = 'video-modal';
+                        modal.style.cssText = `
+                            position: fixed;
+                            top: 0;
+                            left: 0;
+                            width: 100%;
+                            height: 100%;
+                            background: rgba(0,0,0,0.9);
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            z-index: 10000;
+                            padding: 20px;
+                        `;
+                        
+                        modal.innerHTML = `
+                            <div style="position: relative; width: 100%; max-width: 900px;">
+                                <button style="position: absolute; top: -40px; right: 0; background: none; border: none; color: white; font-size: 2rem; cursor: pointer;">
+                                    <i class="fas fa-times"></i>
+                                </button>
+                                <div style="position: relative; padding-bottom: 56.25%; height: 0;">
+                                    <iframe 
+                                        src="${videoUrl}?autoplay=1" 
+                                        style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; border-radius: 10px;"
+                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                        allowfullscreen>
+                                    </iframe>
+                                </div>
+                            </div>
+                        `;
+                        
+                        document.body.appendChild(modal);
+                        document.body.style.overflow = 'hidden';
+                        
+                        // Fermer le modal
+                        const closeBtn = modal.querySelector('button');
+                        closeBtn.addEventListener('click', () => {
+                            document.body.removeChild(modal);
+                            document.body.style.overflow = '';
+                        });
+                        
+                        modal.addEventListener('click', (e) => {
+                            if (e.target === modal) {
+                                document.body.removeChild(modal);
+                                document.body.style.overflow = '';
+                            }
+                        });
+                    });
+                });
+            }
+            
+            // Initialisation
+            initGallery();
+            
+            // Effet de chargement des images
+            const images = document.querySelectorAll('.gallery-item-full img');
+            images.forEach(img => {
+                img.addEventListener('load', function() {
+                    this.parentElement.classList.add('loaded');
+                });
+            });
+        });
+    </script>
+</body>
+</html>

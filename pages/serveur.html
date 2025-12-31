@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="fr" class="no-js">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Le Serveur - Elvoria RP | Serveur FiveM Premium</title>
+    <meta name="description" content="Découvrez en détail les fonctionnalités uniques de notre serveur FiveM RP français. Scripts exclusifs, métiers, économie et plus encore.">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Rajdhani:wght@500;600;700;800&family=Orbitron:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>👑</text></svg>">
+</head>
+<body>
+    <!-- Navigation (identique à l'index) -->
+    <header class="header" id="header">
+        <div class="container">
+            <nav class="nav">
+                <div class="nav-logo">
+                    <a href="../index.html" class="logo">
+                        <div class="logo-icon">
+                            <i class="fas fa-crown"></i>
+                        </div>
+                        <div class="logo-text">
+                            ELVORIA<span>RP</span>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="nav-menu" id="navMenu">
+                    <ul class="nav-list">
+                        <li class="nav-item">
+                            <a href="../index.html" class="nav-link">
+                                <i class="fas fa-home"></i>
+                                <span>Accueil</span>
+                            </a>
+                        </li>
+                        <li class="nav-item active">
+                            <a href="serveur.html" class="nav-link">
+                                <i class="fas fa-server"></i>
+                                <span>Le Serveur</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="galerie.html" class="nav-link">
+                                <i class="fas fa-images"></i>
+                                <span>Galerie</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="staff.html" class="nav-link">
+                                <i class="fas fa-users-cog"></i>
+                                <span>Staff</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="regles.html" class="nav-link">
+                                <i class="fas fa-book"></i>
+                                <span>Règles</span>
+                            </a>
+                        </li>
+                        <li class="nav-item nav-discord">
+                            <a href="../index.html#discord" class="nav-link discord-btn">
+                                <i class="fab fa-discord"></i>
+                                <span>Discord</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="nav-actions">
+                    <a href="../index.html#join" class="btn btn-primary btn-join">
+                        <i class="fas fa-play"></i>
+                        <span>Jouer Maintenant</span>
+                    </a>
+                    <div class="nav-toggle" id="navToggle">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section Page Serveur -->
+    <section class="page-hero">
+        <div class="container">
+            <div class="page-hero-content">
+                <h1 class="page-title">
+                    <span class="title-decor">Notre</span> Serveur
+                </h1>
+                <p class="page-subtitle">
+                    Découvrez l'expérience RP la plus aboutie et immersive de FiveM
+                </p>
+                <div class="page-breadcrumb">
+                    <a href="../index.html">Accueil</a>
+                    <i class="fas fa-chevron-right"></i>
+                    <span>Le Serveur</span>
+                </div>
+            </div>
+        </div>
+        <div class="page-hero-bg"></div>
+    </section>
+
+    <!-- Section Introduction -->
+    <section class="page-section">
+        <div class="container">
+            <div class="section-intro">
+                <div class="intro-icon">
+                    <i class="fas fa-gamepad"></i>
+                </div>
+                <h2>Une Expérience Unique</h2>
+                <p class="intro-text">
+                    Elvoria RP n'est pas juste un serveur FiveM de plus. C'est un univers complet où chaque détail a été pensé 
+                    pour offrir une immersion totale. Avec nos scripts exclusifs, notre économie dynamique et notre communauté 
+                    passionnée, nous redéfinissons le standard du roleplay français.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Caractéristiques Détaillées -->
+    <section class="features-detailed">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">
+                    <span class="title-decor">Fonctionnalités</span>
+                    Premium
+                </h2>
+                <p class="section-subtitle">Tout ce qui rend Elvoria RP exceptionnel</p>
+            </div>
+
+            <div class="features-tabs">
+                <div class="tabs-nav">
+                    <button class="tab-btn active" data-tab="scripting">
+                        <i class="fas fa-code"></i>
+                        <span>Scripting</span>
+                    </button>
+                    <button class="tab-btn" data-tab="metiers">
+                        <i class="fas fa-briefcase"></i>
+                        <span>Métiers</span>
+                    </button>
+                    <button class="tab-btn" data-tab="economie">
+                        <i class="fas fa-chart-line"></i>
+                        <span>Économie</span>
+                    </button>
+                    <button class="tab-btn" data-tab="vehicules">
+                        <i class="fas fa-car"></i>
+                        <span>Véhicules</span>
+                    </button>
+                    <button class="tab-btn" data-tab="factions">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>Factions</span>
+                    </button>
+                </div>
+
+                <div class="tabs-content">
+                    <!-- Tab Scripting -->
+                    <div class="tab-pane active" id="scripting">
+                        <div class="tab-content-grid">
+                            <div class="tab-feature">
+                                <div class="feature-icon">
+                                    <i class="fas fa-mobile-alt"></i>
+                                </div>
+                                <div class="feature-content">
+                                    <h3>Application Mobile</h3>
+                                    <p>Gérez votre personnage, vos entreprises et vos interactions via notre application mobile exclusive.</p>
+                                    <ul class="feature-list">
+                                        <li><i class="fas fa-check"></i> Gestion bancaire complète</li>
+                                        <li><i class="fas fa-check"></i> Market en ligne</li>
+                                        <li><i class="fas fa-check"></i> Carnet de contacts</li>
+                                        <li><i class="fas fa-check"></i> Système de livraison</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="tab-feature">
+                                <div class="feature-icon">
+                                    <i class="fas fa-home"></i>
+                                </div>
+                                <div class="feature-content">
+                                    <h3>Système Immobilier</h3>
+                                    <p>Plus de 500 propriétés uniques avec intérieurs personnalisables et système de location.</p>
+                                    <ul class="feature-list">
+                                        <li><i class="fas fa-check"></i> Achat/vente de biens</li>
+                                        <li><i class="fas fa-check"></i> Décoration intérieure</li>
+                                        <li><i class="fas fa-check"></i> Système de voisinage</li>
+                                        <li><i class="fas fa-check"></i> Gestion locative</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="tab-feature">
+                                <div class="feature-icon">
+                                    <i class="fas fa-user-md"></i>
+                                </div>
+                                <div class="feature-content">
+                                    <h3>Système Médical Avancé</h3>
+                                    <p>Réalisme médical avec diagnostiques, traitements et réanimation paramédicale.</p>
+                                    <ul class="feature-list">
+                                        <li><i class="fas fa-check"></i> Diagnostique des blessures</li>
+                                        <li><i class="fas fa-check"></i> Traitements spécifiques</li>
+                                        <li><i class="fas fa-check"></i> Ambulance interactive</li>
+                                        <li><i class="fas fa-check"></i> Dossiers patients</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tab Métiers -->
+                    <div class="tab-pane" id="metiers">
+                        <div class="tab-content-grid">
+                            <div class="tab-feature">
+                                <div class="feature-icon">
+                                    <i class="fas fa-balance-scale"></i>
+                                </div>
+                                <div class="feature-content">
+                                    <h3>Métiers Légaux</h3>
+                                    <p>Plus de 30 métiers légaux avec progression et spécialisations.</p>
+                                    <ul class="feature-list">
+                                        <li><i class="fas fa-check"></i> Policier - 5 grades</li>
+                                        <li><i class="fas fa-check"></i> Ambulancier - 4 spécialités</li>
+                                        <li><i class="fas fa-check"></i> Mécanicien - 3 ateliers</li>
+                                        <li><i class="fas fa-check"></i> Restaurateur - 12 recettes</li>
+                                        <li><i class="fas fa-check"></i> Taxi/Uber - 3 véhicules</li>
+                                        <li><i class="fas fa-check"></i> Mineur/Fermier - 8 ressources</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="tab-feature">
+                                <div class="feature-icon">
+                                    <i class="fas fa-skull-crossbones"></i>
+                                </div>
+                                <div class="feature-content">
+                                    <h3>Activités Illégales</h3>
+                                    <p>Système criminel complet avec risques et récompenses.</p>
+                                    <ul class="feature-list">
+                                        <li><i class="fas fa-check"></i> Braquages - 15 scénarios</li>
+                                        <li><i class="fas fa-check"></i> Trafic de drogue - 8 substances</li>
+                                        <li><i class="fas fa-check"></i> Blanchiment d'argent</li>
+                                        <li><i class="fas fa-check"></i> Contrebande d'armes</li>
+                                        <li><i class="fas fa-check"></i> Vol de voitures</li>
+                                        <li><i class="fas fa-check"></i> Kidnapping/rançon</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="tab-feature">
+                                <div class="feature-icon">
+                                    <i class="fas fa-store"></i>
+                                </div>
+                                <div class="feature-content">
+                                    <h3>Entrepreneuriat</h3>
+                                    <p>Créez et gérez votre propre entreprise avec système économique réaliste.</p>
+                                    <ul class="feature-list">
+                                        <li><i class="fas fa-check"></i> Création d'entreprise</li>
+                                        <li><i class="fas fa-check"></i> Embauche de PNJ/joueurs</li>
+                                        <li><i class="fas fa-check"></i> Gestion financière</li>
+                                        <li><i class="fas fa-check"></i> Marketing/publicité</li>
+                                        <li><i class="fas fa-check"></i> Expansion/comptétition</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Les autres tabs suivent le même pattern -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Performance -->
+    <section class="performance-section">
+        <div class="container">
+            <div class="performance-header">
+                <h2>Performance & Stabilité</h2>
+                <p>Notre infrastructure garantit une expérience fluide 24h/24</p>
+            </div>
+
+            <div class="performance-grid">
+                <div class="perf-card">
+                    <div class="perf-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <div class="perf-content">
+                        <h3>0 Lag Garanti</h3>
+                        <p>Serveur optimisé avec 0.01ms de tick rate</p>
+                        <div class="perf-bar">
+                            <div class="perf-fill" style="width: 99.9%"></div>
+                        </div>
+                        <span class="perf-value">99.9% de stabilité</span>
+                    </div>
+                </div>
+
+                <div class="perf-card">
+                    <div class="perf-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <div class="perf-content">
+                        <h3>Anti-Cheat Avancé</h3>
+                        <p>Protection contre toutes les formes de triche</p>
+                        <div class="perf-bar">
+                            <div class="perf-fill" style="width: 100%"></div>
+                        </div>
+                        <span class="perf-value">100% sécurisé</span>
+                    </div>
+                </div>
+
+                <div class="perf-card">
+                    <div class="perf-icon">
+                        <i class="fas fa-server"></i>
+                    </div>
+                    <div class="perf-content">
+                        <h3>Infrastructure Pro</h3>
+                        <p>Hébergement dédié avec sauvegardes automatiques</p>
+                        <div class="perf-bar">
+                            <div class="perf-fill" style="width: 99.8%"></div>
+                        </div>
+                        <span class="perf-value">99.8% uptime</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section FAQ -->
+    <section class="faq-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">
+                    <span class="title-decor">Questions</span>
+                    Fréquentes
+                </h2>
+            </div>
+
+            <div class="faq-container">
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Comment rejoindre le serveur ?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Téléchargez FiveM, recherchez "Elvoria RP" dans la liste des serveurs, connectez-vous et suivez le processus de création de personnage. Notre guide débutant complet est disponible sur Discord.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Le serveur est-il gratuit ?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Oui, Elvoria RP est entièrement gratuit. Nous offrons une expérience premium sans pay-to-win. Les donations sont optionnelles et offrent uniquement des avantages cosmétiques.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Quelles sont les règles ?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Nous avons un règlement complet disponible sur notre site. L'essentiel : respect, immersion et fair-play. Tout manquement est sanctionné par notre équipe de modération.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Prêt à Commencer ?</h2>
+                <p>Rejoignez notre communauté de plus de 2,500 joueurs actifs</p>
+                <div class="cta-actions">
+                    <a href="../index.html#join" class="btn btn-primary btn-lg">
+                        <i class="fas fa-play-circle"></i>
+                        <span>Jouer Maintenant</span>
+                    </a>
+                    <a href="regles.html" class="btn btn-secondary btn-lg">
+                        <i class="fas fa-book"></i>
+                        <span>Lire les Règles</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer (identique à l'index) -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-logo">
+                        <div class="logo">
+                            <div class="logo-icon">
+                                <i class="fas fa-crown"></i>
+                            </div>
+                            <div class="logo-text">
+                                ELVORIA<span>RP</span>
+                            </div>
+                        </div>
+                        <p class="footer-description">
+                            Serveur FiveM RP français premium. 
+                            Expérience immersive et communauté active.
+                        </p>
+                    </div>
+
+                    <div class="social-links">
+                        <a href="../index.html#discord" class="social-link">
+                            <i class="fab fa-discord"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-tiktok"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h3 class="footer-title">Navigation</h3>
+                    <ul class="footer-links">
+                        <li><a href="../index.html"><i class="fas fa-chevron-right"></i> Accueil</a></li>
+                        <li><a href="serveur.html"><i class="fas fa-chevron-right"></i> Le Serveur</a></li>
+                        <li><a href="galerie.html"><i class="fas fa-chevron-right"></i> Galerie</a></li>
+                        <li><a href="staff.html"><i class="fas fa-chevron-right"></i> Staff</a></li>
+                        <li><a href="regles.html"><i class="fas fa-chevron-right"></i> Règles</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h3 class="footer-title">Ressources</h3>
+                    <ul class="footer-links">
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Guide Débutant</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Wiki RP</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Support</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> FAQ</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Blog</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h3 class="footer-title">Contact</h3>
+                    <ul class="footer-contact">
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <span>contact@elvoria-rp.com</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-globe"></i>
+                            <span>www.elvoria-rp.com</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-server"></i>
+                            <span>connect.elvoria-rp.com</span>
+                        </li>
+                    </ul>
+
+                    <div class="newsletter">
+                        <h4>Newsletter</h4>
+                        <p>Restez informé des mises à jour</p>
+                        <form class="newsletter-form">
+                            <input type="email" placeholder="Votre email" required>
+                            <button type="submit">
+                                <i class="fas fa-paper-plane"></i>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div class="copyright">
+                    &copy; 2024 Elvoria RP. Tous droits réservés.
+                    <span class="separator">|</span>
+                    FiveM est une marque déposée de Rockstar North.
+                </div>
+                <div class="legal-links">
+                    <a href="#">Mentions légales</a>
+                    <a href="#">CGU</a>
+                    <a href="#">Politique de confidentialité</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top -->
+    <button class="back-to-top" id="backToTop">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <script src="../script.js"></script>
+    <script>
+        // Script spécifique à la page serveur
+        document.addEventListener('DOMContentLoaded', function() {
+            // Gestion des tabs
+            const tabBtns = document.querySelectorAll('.tab-btn');
+            const tabPanes = document.querySelectorAll('.tab-pane');
+            
+            tabBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const tabId = btn.getAttribute('data-tab');
+                    
+                    // Retirer active de tous
+                    tabBtns.forEach(b => b.classList.remove('active'));
+                    tabPanes.forEach(p => p.classList.remove('active'));
+                    
+                    // Activer le tab cliqué
+                    btn.classList.add('active');
+                    document.getElementById(tabId).classList.add('active');
+                });
+            });
+            
+            // FAQ Accordéon
+            const faqQuestions = document.querySelectorAll('.faq-question');
+            faqQuestions.forEach(question => {
+                question.addEventListener('click', () => {
+                    const answer = question.nextElementSibling;
+                    const isActive = answer.style.maxHeight;
+                    
+                    // Fermer toutes les autres réponses
+                    document.querySelectorAll('.faq-answer').forEach(ans => {
+                        ans.style.maxHeight = null;
+                        ans.previousElementSibling.querySelector('i').classList.remove('fa-chevron-up');
+                        ans.previousElementSibling.querySelector('i').classList.add('fa-chevron-down');
+                    });
+                    
+                    if (!isActive) {
+                        answer.style.maxHeight = answer.scrollHeight + 'px';
+                        question.querySelector('i').classList.remove('fa-chevron-down');
+                        question.querySelector('i').classList.add('fa-chevron-up');
+                    }
+                });
+            });
+            
+            // Animation des bars de performance
+            const perfBars = document.querySelectorAll('.perf-fill');
+            perfBars.forEach(bar => {
+                const width = bar.style.width;
+                bar.style.width = '0%';
+                setTimeout(() => {
+                    bar.style.transition = 'width 2s ease';
+                    bar.style.width = width;
+                }, 500);
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="fr" class="no-js">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elvoria RP | Serveur FiveM Premium</title>
+    <meta name="description" content="Serveur FiveM RP français premium. Expérience de roleplay réaliste, scripts optimisés, communauté active.">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Rajdhani:wght@500;600;700;800&family=Orbitron:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>👑</text></svg>">
+</head>
+<body>
+    <!-- Loader -->
+    <div class="loader">
+        <div class="loader-content">
+            <div class="loader-logo">
+                <div class="loader-icon">👑</div>
+                <div class="loader-text">ELVORIA<span>RP</span></div>
+            </div>
+            <div class="loader-bar">
+                <div class="loader-progress"></div>
+            </div>
+            <div class="loader-stats">
+                <span>Chargement des données...</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation principale -->
+    <header class="header" id="header">
+        <div class="container">
+            <nav class="nav">
+                <div class="nav-logo">
+                    <a href="index.html" class="logo">
+                        <div class="logo-icon">
+                            <i class="fas fa-crown"></i>
+                        </div>
+                        <div class="logo-text">
+                            ELVORIA<span>RP</span>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="nav-menu" id="navMenu">
+                    <ul class="nav-list">
+                        <li class="nav-item active">
+                            <a href="index.html" class="nav-link">
+                                <i class="fas fa-home"></i>
+                                <span>Accueil</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="pages/serveur.html" class="nav-link">
+                                <i class="fas fa-server"></i>
+                                <span>Le Serveur</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="pages/galerie.html" class="nav-link">
+                                <i class="fas fa-images"></i>
+                                <span>Galerie</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="pages/staff.html" class="nav-link">
+                                <i class="fas fa-users-cog"></i>
+                                <span>Staff</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="pages/regles.html" class="nav-link">
+                                <i class="fas fa-book"></i>
+                                <span>Règles</span>
+                            </a>
+                        </li>
+                        <li class="nav-item nav-discord">
+                            <a href="#" class="nav-link discord-btn">
+                                <i class="fab fa-discord"></i>
+                                <span>Discord</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="nav-actions">
+                    <a href="#join" class="btn btn-primary btn-join">
+                        <i class="fas fa-play"></i>
+                        <span>Jouer Maintenant</span>
+                    </a>
+                    <div class="nav-toggle" id="navToggle">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section avec effets particules -->
+    <section class="hero" id="hero">
+        <div class="hero-bg"></div>
+        <canvas id="particlesCanvas" class="particles-canvas"></canvas>
+        
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <span class="badge">EN LIGNE</span>
+                    <span class="players-count">
+                        <i class="fas fa-user"></i>
+                        <span id="onlineCount">0</span>/128
+                    </span>
+                </div>
+
+                <h1 class="hero-title">
+                    <span class="title-line">ELVORIA</span>
+                    <span class="title-line accent">ROLEPLAY</span>
+                </h1>
+
+                <p class="hero-subtitle">
+                    L'expérience <span class="highlight">FiveM RP</span> la plus immersive et réaliste.<br>
+                    Rejoignez une communauté active de passionnés.
+                </p>
+
+                <div class="hero-actions">
+                    <a href="#join" class="btn btn-primary btn-lg">
+                        <i class="fas fa-play-circle"></i>
+                        <span>Jouer Gratuitement</span>
+                    </a>
+                    <a href="#discord" class="btn btn-secondary btn-lg">
+                        <i class="fab fa-discord"></i>
+                        <span>Rejoindre Discord</span>
+                    </a>
+                </div>
+
+                <div class="hero-scroll">
+                    <span class="scroll-text">Découvrir</span>
+                    <div class="scroll-icon">
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Statistiques -->
+    <section class="stats-section">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-card glow">
+                    <div class="stat-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="stat-content">
+                        <div class="stat-number" data-count="2500">0</div>
+                        <div class="stat-label">Joueurs Inscrits</div>
+                    </div>
+                </div>
+
+                <div class="stat-card glow">
+                    <div class="stat-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <div class="stat-content">
+                        <div class="stat-number" data-count="24">0</div>
+                        <div class="stat-label">Heures / 24</div>
+                    </div>
+                </div>
+
+                <div class="stat-card glow">
+                    <div class="stat-icon">
+                        <i class="fas fa-car"></i>
+                    </div>
+                    <div class="stat-content">
+                        <div class="stat-number" data-count="150">0</div>
+                        <div class="stat-label">Véhicules Uniques</div>
+                    </div>
+                </div>
+
+                <div class="stat-card glow">
+                    <div class="stat-icon">
+                        <i class="fas fa-briefcase"></i>
+                    </div>
+                    <div class="stat-content">
+                        <div class="stat-number" data-count="45">0</div>
+                        <div class="stat-label">Métiers Disponibles</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Features -->
+    <section class="features-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">
+                    <span class="title-decor">Pourquoi</span>
+                    Nous Choisir ?
+                </h2>
+                <p class="section-subtitle">Une expérience de jeu unique et immersive</p>
+            </div>
+
+            <div class="features-grid">
+                <div class="feature-card feature-card-large">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h3>Anti-Cheat Avancé</h3>
+                        <p>Système de sécurité dernier cri pour garantir un jeu équitable.</p>
+                        <ul class="feature-list">
+                            <li><i class="fas fa-check"></i> Détection des tricheurs</li>
+                            <li><i class="fas fa-check"></i> Protection contre les mods</li>
+                            <li><i class="fas fa-check"></i> Surveillance 24h/24</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h3>Performance</h3>
+                        <p>Serveur optimisé pour une expérience fluide sans lag.</p>
+                    </div>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h3>Scripts Uniques</h3>
+                        <p>Développements exclusifs pour une immersion totale.</p>
+                    </div>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h3>Support Réactif</h3>
+                        <p>Staff disponible et à l'écoute de la communauté.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Discord Widget -->
+    <section class="discord-section" id="discord">
+        <div class="container">
+            <div class="discord-container">
+                <div class="discord-info">
+                    <h2 class="discord-title">
+                        <i class="fab fa-discord"></i>
+                        Notre Communauté Discord
+                    </h2>
+                    
+                    <div class="discord-stats">
+                        <div class="discord-stat">
+                            <div class="stat-value" id="discordMembers">0</div>
+                            <div class="stat-label">Membres</div>
+                        </div>
+                        <div class="discord-stat">
+                            <div class="stat-value" id="discordOnline">0</div>
+                            <div class="stat-label">En Ligne</div>
+                        </div>
+                        <div class="discord-stat">
+                            <div class="stat-value" id="discordVoice">0</div>
+                            <div class="stat-label">En Vocal</div>
+                        </div>
+                    </div>
+
+                    <p class="discord-description">
+                        Rejoignez notre serveur Discord pour rester connecté avec la communauté, 
+                        participer aux événements, obtenir du support et être informé des mises à jour.
+                    </p>
+
+                    <div class="discord-features">
+                        <div class="feature">
+                            <i class="fas fa-comments"></i>
+                            <span>Chat en temps réel</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-calendar-alt"></i>
+                            <span>Événements exclusifs</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-headset"></i>
+                            <span>Support technique</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-newspaper"></i>
+                            <span>Annonces importantes</span>
+                        </div>
+                    </div>
+
+                    <a href="https://discord.gg/elvoriarp" target="_blank" class="btn btn-discord btn-lg">
+                        <i class="fab fa-discord"></i>
+                        Rejoindre le Discord
+                    </a>
+                </div>
+
+                <div class="discord-widget">
+                    <div class="widget-header">
+                        <h3>DISCORD SERVER</h3>
+                        <div class="widget-status online">
+                            <span class="status-dot"></span>
+                            EN LIGNE
+                        </div>
+                    </div>
+                    
+                    <!-- Widget Discord officiel -->
+                    <div class="discord-iframe-wrapper">
+                        <iframe src="https://discord.com/widget?id=1426868630058041455&theme=dark" 
+                                width="100%" 
+                                height="500" 
+                                allowtransparency="true" 
+                                frameborder="0" 
+                                sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"
+                                class="discord-widget-frame"
+                                title="Widget Discord Elvoria RP">
+                        </iframe>
+                    </div>
+                    
+                    <div class="widget-channels">
+                        <div class="channel active">
+                            <i class="fas fa-hashtag"></i>
+                            <span>#général</span>
+                        </div>
+                        <div class="channel">
+                            <i class="fas fa-hashtag"></i>
+                            <span>#annonces</span>
+                        </div>
+                        <div class="channel">
+                            <i class="fas fa-hashtag"></i>
+                            <span>#support</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Galerie Preview -->
+    <section class="gallery-preview">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">
+                    <span class="title-decor">Galerie</span>
+                    Immersive
+                </h2>
+                <a href="pages/galerie.html" class="btn-link">
+                    Voir toute la galerie
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <div class="gallery-image">
+                        <img src="https://images.unsplash.com/photo-1511512578047-dfb367046420?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Ville">
+                        <div class="gallery-overlay">
+                            <h3>Ville Dynamique</h3>
+                            <p>Environnement urbain détaillé</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item">
+                    <div class="gallery-image">
+                        <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Véhicules">
+                        <div class="gallery-overlay">
+                            <h3>Véhicules Premium</h3>
+                            <p>+150 véhicules uniques</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item">
+                    <div class="gallery-image">
+                        <img src="https://images.unsplash.com/photo-1534423861386-85a16f5d13fd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Intérieurs">
+                        <div class="gallery-overlay">
+                            <h3>Intérieurs Détaillés</h3>
+                            <p>Maisons et entreprises</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Rejoindre -->
+    <section class="join-section" id="join">
+        <div class="container">
+            <div class="join-container">
+                <div class="join-content">
+                    <h2 class="join-title">Prêt à Jouer ?</h2>
+                    <p class="join-subtitle">Rejoignez Elvoria RP en quelques clics</p>
+
+                    <div class="join-steps">
+                        <div class="step">
+                            <div class="step-number">1</div>
+                            <div class="step-content">
+                                <h3>Téléchargez FiveM</h3>
+                                <p>Installez le client FiveM officiel</p>
+                            </div>
+                        </div>
+
+                        <div class="step">
+                            <div class="step-number">2</div>
+                            <div class="step-content">
+                                <h3>Recherchez notre Serveur</h3>
+                                <p>Tapez "Elvoria RP" dans la recherche</p>
+                            </div>
+                        </div>
+
+                        <div class="step">
+                            <div class="step-number">3</div>
+                            <div class="step-content">
+                                <h3>Connectez-vous</h3>
+                                <p>Rejoignez et commencez l'aventure</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="join-actions">
+                        <a href="fivem://connect/elvoria-rp.com" class="btn btn-primary btn-xl">
+                            <i class="fas fa-bolt"></i>
+                            <span>Se Connecter Directement</span>
+                        </a>
+                        <div class="server-info">
+                            <div class="info-item">
+                                <i class="fas fa-server"></i>
+                                <span>IP: connect.elvoria-rp.com</span>
+                                <button class="copy-btn" data-text="connect.elvoria-rp.com">
+                                    <i class="fas fa-copy"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="join-widget">
+                    <div class="widget">
+                        <div class="widget-header">
+                            <h3>SERVEUR EN DIRECT</h3>
+                            <div class="online-indicator">
+                                <span class="pulse"></span>
+                                EN LIGNE
+                            </div>
+                        </div>
+                        <div class="widget-content">
+                            <div class="server-stats">
+                                <div class="stat">
+                                    <div class="stat-label">Joueurs</div>
+                                    <div class="stat-value" id="livePlayers">0/128</div>
+                                </div>
+                                <div class="stat">
+                                    <div class="stat-label">Ping</div>
+                                    <div class="stat-value">15ms</div>
+                                </div>
+                                <div class="stat">
+                                    <div class="stat-label">Uptime</div>
+                                    <div class="stat-value">99.8%</div>
+                                </div>
+                            </div>
+                            <div class="players-list">
+                                <h4>Joueurs en ligne</h4>
+                                <div class="list" id="playersList">
+                                    <!-- Liste dynamique des joueurs -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-logo">
+                        <div class="logo">
+                            <div class="logo-icon">
+                                <i class="fas fa-crown"></i>
+                            </div>
+                            <div class="logo-text">
+                                ELVORIA<span>RP</span>
+                            </div>
+                        </div>
+                        <p class="footer-description">
+                            Serveur FiveM RP français premium. 
+                            Expérience immersive et communauté active.
+                        </p>
+                    </div>
+
+                    <div class="social-links">
+                        <a href="#" class="social-link">
+                            <i class="fab fa-discord"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-tiktok"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h3 class="footer-title">Navigation</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html"><i class="fas fa-chevron-right"></i> Accueil</a></li>
+                        <li><a href="pages/serveur.html"><i class="fas fa-chevron-right"></i> Le Serveur</a></li>
+                        <li><a href="pages/galerie.html"><i class="fas fa-chevron-right"></i> Galerie</a></li>
+                        <li><a href="pages/staff.html"><i class="fas fa-chevron-right"></i> Staff</a></li>
+                        <li><a href="pages/regles.html"><i class="fas fa-chevron-right"></i> Règles</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h3 class="footer-title">Ressources</h3>
+                    <ul class="footer-links">
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Guide Débutant</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Wiki RP</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Support</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> FAQ</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Blog</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h3 class="footer-title">Contact</h3>
+                    <ul class="footer-contact">
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <span>contact@elvoria-rp.com</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-globe"></i>
+                            <span>www.elvoria-rp.com</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-server"></i>
+                            <span>connect.elvoria-rp.com</span>
+                        </li>
+                    </ul>
+
+                    <div class="newsletter">
+                        <h4>Newsletter</h4>
+                        <p>Restez informé des mises à jour</p>
+                        <form class="newsletter-form">
+                            <input type="email" placeholder="Votre email" required>
+                            <button type="submit">
+                                <i class="fas fa-paper-plane"></i>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div class="copyright">
+                    &copy; 2024 Elvoria RP. Tous droits réservés.
+                    <span class="separator">|</span>
+                    FiveM est une marque déposée de Rockstar North.
+                </div>
+                <div class="legal-links">
+                    <a href="#">Mentions légales</a>
+                    <a href="#">CGU</a>
+                    <a href="#">Politique de confidentialité</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top -->
+    <button class="back-to-top" id="backToTop">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <!-- Notifications -->
+    <div class="notification-container" id="notificationContainer"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
